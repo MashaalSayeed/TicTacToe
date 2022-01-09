@@ -1,5 +1,4 @@
 import random
-import time
 import tkinter as tk
 from tkinter import ttk
 
@@ -22,15 +21,6 @@ def check_win(state, player):
         if state[p1] == state[p2] == state[p3] == player:
             return True
     return False
-
-
-def evaluate(state):
-    score = 0
-    if check_win(state, 1):
-        score = -1
-    elif check_win(state, -1):
-        score = 1
-    return score
 
 
 def minimax(state, player, depth):
@@ -63,7 +53,7 @@ def minimax(state, player, depth):
 
 
 
-class Game():
+class Game:
     def __init__(self):
         self.board = [0] * 9 # 0 = empty, 1 = X, -1 = O
         self.turn = random.choice((-1, 1))
